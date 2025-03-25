@@ -128,8 +128,6 @@
         const addElementList = document.querySelector("#secondList");
         const secondElementList = document.createElement("li");
         secondElementList.textContent = "4rd";
-        console.log(secondElementList);
-
         addElementList.appendChild(secondElementList);
       };
       addToTheSecond();
@@ -167,10 +165,20 @@
       paintItGreen();
 
       /* ESERCIZIO 9
-         Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
+         Scrivi una funzione che rimuova l'ultima letteradall'h1 ogni volta che l'utente lo clicca
         */
 
-      const makeItClickable = function () {};
+      const makeItClickable = function () {
+        document.querySelector("h1").onclick = function () {
+          changeClick();
+        };
+        function changeClick() {
+          const textH1 = document.querySelector("h1");
+          const letter = textH1.textContent;
+          textH1.textContent = letter.slice(0, -1);
+        }
+      };
+      makeItClickable();
 
       /* ESERCIZIO 10
          Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
@@ -183,7 +191,12 @@
          La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
       */
 
-      const generateTable = function () {};
+      const generateTable = function () {
+        const newTable = document.querySelector("#tableArea");
+        newTable.innerHTML =
+          "<table><tr><th>immagine</th><th>nome prodotto</th><th>quantità</th><th>prezzo</th></tr></table>";
+      };
+      generateTable();
 
       /* ESERCIZIO 12
          Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
